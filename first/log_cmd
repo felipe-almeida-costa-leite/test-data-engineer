@@ -1,0 +1,3 @@
+aws s3 cp s3://ifood-data-architect-test-source/restaurant.csv.gz s3://aws-s3-dados-data-lake/raw/partners/
+aws s3 cp s3://ifood-data-architect-test-source/consumer.csv.gz s3://aws-s3-dados-data-lake/raw/customers/
+aws s3 cp s3://ifood-data-architect-test-source/order.json.gz s3://aws-s3-dados-data-lake/raw/sales/
