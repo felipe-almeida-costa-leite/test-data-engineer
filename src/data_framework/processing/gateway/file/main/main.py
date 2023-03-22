@@ -6,7 +6,6 @@ from importlib import *
 @dataclasses.dataclass
 class File:
     file_type: str
-    path: str
     name_class: str = None
     module_class: str = None
 

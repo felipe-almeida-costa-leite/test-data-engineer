@@ -1,0 +1,47 @@
+version: v0
+source:
+  table:
+    database: ""
+    table: ""
+    path: ""
+    type: csv | parquet | txt
+  parition:
+    name: ""
+  schema:
+    type: glue, file
+    path: ""
+    schema_list:
+      col:
+        name: ""
+        type: ""
+  filter:
+    query: ""
+load:
+  partitions:
+    all: ""
+    at_date:
+      start:
+        date: ""
+        condition: ""
+      end:
+        date: ""
+        condition: ""
+    reverser: True
+  format: batch | stream
+target:
+  table:
+    database: ""
+    table: ""
+    path: ""
+    type: parquet | iceberg | delta | hudi
+  parition:
+    name: ""
+    directly: True
+  schema:
+    type: glue, file
+    path: ""
+    schema_list:
+      col:
+        name: ""
+        type: ""
+    convert: True

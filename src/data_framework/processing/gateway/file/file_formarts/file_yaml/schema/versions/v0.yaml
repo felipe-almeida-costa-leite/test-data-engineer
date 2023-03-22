@@ -1,0 +1,4 @@
+version: regex('v[0-9]+', required=True, none=False, name='Versao do YAML')
+source: map(name='Parametros de Souce', required=False)
+load: map(name='Parametros de Load', required=False)
+target: map(name='Parametros de Target', required=False)
