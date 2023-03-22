@@ -5,8 +5,12 @@ source:
     table: ""
     path: ""
     type: csv | parquet | txt
-  parition:
-    name: ""
+    partition:
+      partitioning: True | False
+      partition_colum:
+        - dtbaprocessamento
+        - ano
+        - mes
   schema:
     type: glue, file
     path: ""
@@ -17,26 +21,29 @@ source:
   filter:
     query: ""
 load:
-  partitions:
-    all: ""
-    at_date:
-      start:
-        date: ""
-        condition: ""
-      end:
-        date: ""
-        condition: ""
-    reverser: True
-  format: batch | stream
+  all: ""
+  at_date:
+    start:
+      date: ""
+      condition: ""
+    end:
+      date: ""
+      condition: ""
+  reverser: True
+  format: batch | stream | analysis
 target:
   table:
     database: ""
     table: ""
     path: ""
-    type: parquet | iceberg | delta | hudi
-  parition:
-    name: ""
-    directly: True
+    type: parquet | iceberg | delta | hudi | dynamodb
+    partition:
+      partitioning: True | False
+      partition_colum:
+        - dtbaprocessamento
+        - ano
+        - mes
+      directly: True
   schema:
     type: glue, file
     path: ""
