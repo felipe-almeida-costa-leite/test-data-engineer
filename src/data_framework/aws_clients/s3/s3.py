@@ -36,6 +36,11 @@ class S3Path:
 @dataclasses.dataclass
 class S3(ClientConfig):
 
+    def __init__(self, region: str, endpoint: str = None):
+        self.region = region
+        self.endpoint = endpoint
+        super().__init__(service='s3', region=self.region, endpoint=self.endpoint)
+
     def get_object(self, path: Union[S3Path, str], **kwargs) -> Dict:
         if not kwargs:
             if isinstance(path, str):
@@ -49,6 +54,11 @@ class S3(ClientConfig):
 
 @dataclasses.dataclass
 class S3File(S3):
+
+    def __init__(self, region: str, endpoint: str = None):
+        self.region = region
+        self.endpoint = endpoint
+        super().__init__(region=self.region, endpoint=self.endpoint)
 
     def get(self, path: Union[S3Path, str], *, enconding: Optional[str] = None):
         response = self.get_object(path=path).get('Body')
