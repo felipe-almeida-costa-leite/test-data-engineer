@@ -102,3 +102,49 @@ The goal for this exercise is to deploy a simple and scalable Apache Airflow pla
 * Quick start information on Airflow’s architecture: https://airflow.apache.org/docs/apache-airflow/2.0.0/start.html
 * Kubernetes resource templates for Airflow are available at: https://github.com/apache/airflow/tree/master/chart/templates
 * Minikube documentation available at: https://minikube.sigs.k8s.io/docs/start/
+
+
+
+
+Anotações
+
+source
+    database and table
+        coletar partition
+    path and type
+                type enum(csv, parquet, txt)
+                partition obrigatorio
+        schema
+            type == glue é default
+                coletar schema list
+            type == file
+                path é obrigatorio
+            se não file e glue
+            schema_list é obrigatorio
+    filter
+    não é obrigatorio
+
+load
+    all é default
+    se not all at_date é obrigatorio
+
+    reverse é opcional e não é aplicado para tabelas
+não particionadas
+
+    format é obrigatorio
+
+target
+    database and table
+        coletar partition e directly é default True
+    path and type
+                type enum(parquet, iceberg, delta, hudi, dynamodb)
+                partition obrigatorio apenas para parquet
+        path é obrigatorio apenas para parquet
+
+        schema
+            type == glue é default
+                coletar schema list
+            type == file
+                path é obrigatorio
+            se não file e glue
+            schema_list é obrigatorio
