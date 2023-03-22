@@ -1,3 +1,24 @@
 aws s3 cp s3://ifood-data-architect-test-source/restaurant.csv.gz s3://aws-s3-dados-data-lake/raw/partners/
 aws s3 cp s3://ifood-data-architect-test-source/consumer.csv.gz s3://aws-s3-dados-data-lake/raw/customers/
 aws s3 cp s3://ifood-data-architect-test-source/order.json.gz s3://aws-s3-dados-data-lake/raw/sales/
+
+
+
+Contruir um framework que seja possível receber parametros de CLI
+ou apenas um parametro de FILE que seria o PATH onde estará todas
+as informações necessárias para a coleta dos parametros.
+
+O framework em seu nível mais baixo
+deve ter a responsabilidade do seguinte:
+1. Coletar o Schema da Origem
+2. Coletar o Schema do Destino
+3. Validar se os Schemas são compatíveis para conversão
+4. Gerar a query de conversão de schemas
+5. Escrever os dados particionados
+
+
+from data_framework.processing.gateway.file import File
+
+File('YAML', path='s3://blbllb').run()
+
+
