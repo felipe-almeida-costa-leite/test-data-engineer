@@ -1,4 +1,5 @@
-from typing import List
+from typing import List, Union
+from pathlib import Path
 
 
 def convert_list_string(lista: List, sep='/'):
@@ -9,3 +10,10 @@ def convert_list_string(lista: List, sep='/'):
         else:
             key += str(value) + sep
     return key
+
+
+def read_raw_file_from_dictory(path: Union[Path, str]):
+    if isinstance(path, str):
+        path = Path(path)
+    with open(path) as file:
+        return file.read()
