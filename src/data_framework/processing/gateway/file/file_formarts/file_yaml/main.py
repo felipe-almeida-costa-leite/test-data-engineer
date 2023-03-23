@@ -22,7 +22,7 @@ class GatewayFileYAML(GatewayFile):
     @property
     def read_schema(self) -> str:
         return read_raw_file_from_dictory(
-            path=YAMLSchemaVersions.get_schema_path(schema_version=self.file.get('version')))
+            path=YAMLSchemaVersions.get_schema_path())
 
     @property
     def file(self) -> Dict:

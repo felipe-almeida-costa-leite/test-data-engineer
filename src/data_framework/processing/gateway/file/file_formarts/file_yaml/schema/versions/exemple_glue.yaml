@@ -1,0 +1,21 @@
+source:
+  table:
+    database: ""
+    table: ""
+  filter:
+    query: ""
+load:
+  all: ""
+  at_date:
+    start:
+      date: ""
+      condition: ""
+    end:
+      date: ""
+      condition: ""
+  reverser: True
+  format: batch | stream | analysis
+target:
+  table:
+    database: ""
+    table: ""

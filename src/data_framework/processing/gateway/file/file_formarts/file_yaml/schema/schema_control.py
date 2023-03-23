@@ -10,7 +10,7 @@ class YAMLSchemaVersions(Enum):
         return list(map(lambda c: c.name, cls))
 
     @classmethod
-    def get_schema_path(cls, schema_version: str):
+    def get_schema_path(cls, schema_version: str = 'v0'):
         root = Path(__file__).parent
         path = Path('versions')
         versions = cls.get_version()
