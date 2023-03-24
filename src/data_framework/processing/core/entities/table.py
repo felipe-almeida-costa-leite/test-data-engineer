@@ -20,7 +20,7 @@ class TableCatalog(AbstractTable, metaclass=ABCMeta):
 
     @property
     @abstractmethod
-    def schema(self) -> SchemaCatalog:
+    def schema(self):
         ...
 
 

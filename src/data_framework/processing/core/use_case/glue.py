@@ -13,7 +13,7 @@ class SchemaGlue(SchemaCatalog):
     schema_glue: Schema = None
 
     @property
-    def schema(self):
+    def schema(self) -> Schema:
         if not self.schema_glue:
             self.schema_glue = self.collect_schema()
         return self.schema
@@ -47,7 +47,11 @@ class TableGlue(TableCatalog):
         return self.database_name
 
     @property
-    def schema(self):
+    def schema(self) -> Schema:
         if not self.schema_glue:
-            self.schema_glue = SchemaGlue(table=self.table, database=self.database).schema
-        return self.schema_glue
+            self.schema_glue = SchemaGlue(table=self.table, database=self.database)
+        return self.schema_glue.schema
+
+    @property
+    def schema_dict(self):
+        return self.schema.schema_dict()
